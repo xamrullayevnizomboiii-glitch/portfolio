@@ -1,0 +1,348 @@
+      delay: 0.35,
+                y: 20,
+                children: T.jsx("p", {
+                  style: {
+                    color: "#D7E2EA",
+                    fontWeight: 600,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    lineHeight: 1.35,
+                    maxWidth: "clamp(140px,20vw,280px)",
+                    fontSize: "clamp(0.6rem,1.1vw,1.05rem)",
+                    wordBreak: "keep-all",
+                    hyphens: "none",
+                  },
+                  children: n.heroDesc,
+                }),
+              }),
+              T.jsx(Re, {
+                delay: 0.5,
+                y: 20,
+                children: T.jsx(tt.button, {
+                  whileHover: {
+                    scale: 1.06,
+                    boxShadow:
+                      "0 6px 24px rgba(181,1,167,0.5),inset 4px 4px 12px #7721B1",
+                  },
+                  whileTap: { scale: 0.96 },
+                  style: {
+                    ...a,
+                    padding: "clamp(10px,1.5vw,16px) clamp(24px,3vw,48px)",
+                    fontSize: "clamp(0.7rem,1vw,0.95rem)",
+                  },
+                  children: n.contact,
+                }),
+              }),
+            ],
+          }),
+        ],
+      }),
+      T.jsx("section", {
+        ref: r,
+        style: {
+          paddingTop: "clamp(80px,12vw,160px)",
+          paddingBottom: 40,
+          overflow: "visible",
+        },
+        children: T.jsx("div", {
+          style: { display: "flex", flexDirection: "column", gap: 12 },
+          children: [o, l].map((u, c) =>
+            T.jsx(
+              "div",
+              {
+                style: {
+                  display: "flex",
+                  gap: 12,
+                  transform: `translateX(${c === 0 ? i - 200 : -(i - 200)}px)`,
+                  willChange: "transform",
+                },
+                children: u.map((f, d) =>
+                  T.jsxs(
+                    "div",
+                    {
+                      style: {
+                        flexShrink: 0,
+                        borderRadius: 24,
+                        overflow: "hidden",
+                        padding: 8,
+                        background: "rgba(20, 15, 30, 0.4)",
+                        backdropFilter: "blur(24px)",
+                        WebkitBackdropFilter: "blur(24px)",
+                        boxShadow: "0 20px 40px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.4), inset 0 -1px 3px rgba(138,43,226,0.6), 0 0 20px rgba(138,43,226,0.1)",
+                        border: "1px solid rgba(255,255,255,0.15)",
+                        borderBottom: "1px solid rgba(138,43,226,0.4)",
+                        borderRight: "1px solid rgba(138,43,226,0.25)",
+                      },
+                      children: [
+                        T.jsx("div", {
+                          style: {
+                            background: "rgba(10, 5, 15, 0.6)",
+                            padding: "8px 12px",
+                            display: "flex",
+                            gap: 6,
+                            borderRadius: "16px 16px 0 0",
+                            borderBottom: "1px solid rgba(255,255,255,0.05)"
+                          },
+                          children: ["#FF5F57", "#FEBC2E", "#28C840"].map(
+                            (g, y) =>
+                              T.jsx(
+                                "div",
+                                {
+                                  style: {
+                                    width: 10,
+                                    height: 10,
+                                    borderRadius: "50%",
+                                    background: g,
+                                    boxShadow: "inset 0 1px 3px rgba(255,255,255,0.4)"
+                                  },
+                                },
+                                y,
+                              ),
+                          ),
+                        }),
+                        T.jsxs("div", {
+                          style: { position: "relative" },
+                          children: [
+                            T.jsx("img", {
+                              src: f,
+                              alt: "",
+                              loading: "lazy",
+                              style: {
+                                width: 340,
+                                height: 210,
+                                objectFit: "cover",
+                                objectPosition: "top center",
+                                display: "block",
+                                borderBottomLeftRadius: 16,
+                                borderBottomRightRadius: 16,
+                                opacity: 0.95,
+                              },
+                            }),
+                            T.jsx("div", {
+                              style: {
+                                position: "absolute", top: 0, left: 0, right: 0, bottom: 0,
+                                background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0) 100%)",
+                                pointerEvents: "none",
+                                borderBottomLeftRadius: 16,
+                                borderBottomRightRadius: 16,
+                              }
+                            })
+                          ]
+                        })
+                      ],
+                    },
+                    d,
+                  ),
+                ),
+              },
+              c,
+            ),
+          ),
+        }),
+      }),
+      T.jsxs("section", {
+        id: "about",
+        style: {
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "relative",
+          padding: "80px 40px",
+        },
+        children: [
+          [
+            {
+              src: "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png",
+              delay: 0.1,
+              x: -120,
+              style: { top: "4%", left: "2%", width: "clamp(80px,11vw,170px)" },
+            },
+            {
+              src: "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png",
+              delay: 0.25,
+              x: -120,
+              style: {
+                bottom: "8%",
+                left: "6%",
+                width: "clamp(60px,9vw,140px)",
+              },
+            },
+            {
+              src: "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png",
+              delay: 0.15,
+              x: 120,
+              style: {
+                top: "4%",
+                right: "2%",
+                width: "clamp(80px,11vw,170px)",
+              },
+            },
+            {
+              src: "https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png",
+              delay: 0.3,
+              x: 120,
+              style: {
+                bottom: "8%",
+                right: "6%",
+                width: "clamp(90px,12vw,180px)",
+              },
+            },
+          ].map((u, c) =>
+            T.jsx(
+              Re,
+              {
+                delay: u.delay,
+                x: u.x,
+                y: 0,
+                duration: 0.8,
+                style: {
+                  position: "absolute",
+                  pointerEvents: "none",
+                  ...u.style,
+                },
+                children: T.jsx("img", {
+                  src: u.src,
+                  alt: "",
+                  loading: "lazy",
+                  style: { width: "100%" },
+                }),
+              },
+              c,
+            ),
+          ),
+          T.jsxs("div", {
+            style: {
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
+              gap: "clamp(28px,5vw,52px)",
+              position: "relative",
+              zIndex: 10,
+            },
+            children: [
+              T.jsx(Re, {
+                delay: 0,
+                y: 50,
+                children: T.jsx("h2", { className: "hero-heading", style: { fontWeight: 900, textTransform: "uppercase", textAlign: "center", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "clamp(40px,6vw,80px)", fontSize: "clamp(3rem,12vw,140px)" }, children: n.aboutTitle,
+                }),
+              }),
+              T.jsxs("div", {
+                style: {
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "clamp(40px,7vw,72px)",
+                },
+                children: [
+                  T.jsx(k2, {
+                    text: n.aboutText,
+                    style: {
+                      color: "#D7E2EA",
+                      fontWeight: 500,
+                      lineHeight: 1.6,
+                      maxWidth: 560,
+                      fontSize: "clamp(1rem,2vw,1.3rem)",
+                      textAlign: "center",
+                    },
+                  }),
+                  T.jsx(Re, {
+                    delay: 0.2,
+                    y: 20,
+                    children: T.jsx(tt.button, {
+                      whileHover: { scale: 1.06 },
+                      whileTap: { scale: 0.96 },
+                      style: { ...a, padding: "14px 40px", fontSize: "0.9rem" },
+                      children: n.contact,
+                    }),
+                  }),
+                ],
+              }),
+            ],
+          }),
+        ],
+      }),
+      T.jsxs("section", {
+        id: "services",
+        style: {
+          background: "radial-gradient(circle at 50% 0%, #fcfcfc 0%, #e0e0e0 100%)",
+          borderRadius: "50px 50px 0 0",
+          padding: "clamp(60px,8vw,120px) clamp(20px,5vw,60px)",
+        },
+        children: [
+          T.jsx(Re, {
+            delay: 0,
+            y: 40,
+            children: T.jsx("h2", {
+              style: {
+                fontWeight: 900,
+                textTransform: "uppercase",
+                textAlign: "center",
+                color: "#0C0C0C",
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+                marginBottom: "clamp(48px,8vw,100px)",
+                fontSize: "clamp(3rem,12vw,140px)",
+              },
+              children: n.servicesTitle,
+            }),
+          }),
+          T.jsx("div", {
+            style: { maxWidth: 900, margin: "0 auto" },
+            children: n.services.map((u, c) =>
+              T.jsxs(
+                tt.div,
+                {
+                  initial: { opacity: 0, y: 50 },
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: !1, amount: 0.2 },
+                  transition: {
+                    delay: c * 0.1,
+                    duration: 0.6,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  },
+                  style: {
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "clamp(12px,3vw,40px)",
+                    padding: "clamp(20px,3.5vw,44px) 0",
+                    borderTop: "1px solid rgba(12,12,12,0.15)",
+                    ...(c === n.services.length - 1
+                      ? { borderBottom: "1px solid rgba(12,12,12,0.15)" }
+                      : {}),
+                  },
+                  children: [
+                    T.jsx("span", {
+                      style: {
+                        fontWeight: 900,
+                        color: "#0C0C0C",
+                        lineHeight: 1,
+                        flexShrink: 0,
+                        fontSize: "clamp(2.5rem,8vw,120px)",
+                      },
+                      children: u.n,
+                    }),
+                    T.jsxs("div", {
+                      style: {
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 8,
+                        paddingTop: "clamp(4px,1vw,16px)",
+                      },
+                      children: [
+                        T.jsx("span", {
+                          style: {
+                            fontWeight: 700,
+                            textTransform: "uppercase",
+                            color: "#0C0C0C",
+                            fontSize: "clamp(1rem,2.2vw,2rem)",
+                            letterSpacing: "0.02em",
+                          },
+                          children: u.name,
+                        }),
+                        T.jsx("p", {
+                          style: {
+                            fontWeight: 500,
+                            lineHeight: 1.6,
+            

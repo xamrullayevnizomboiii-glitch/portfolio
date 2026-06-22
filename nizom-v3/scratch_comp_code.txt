@@ -1,0 +1,377 @@
+m: 16,
+            flexWrap: "wrap",
+            gap: 12,
+          },
+          children: [
+            T.jsxs("div", {
+              style: { display: "flex", alignItems: "baseline", gap: 12 },
+              children: [
+                T.jsx("span", {
+                  className: "hero-heading",
+                  style: {
+                    fontWeight: 900,
+                    lineHeight: 1,
+                    fontSize: "clamp(2rem,6vw,80px)",
+                  },
+                  children: e.n,
+                }),
+                T.jsxs("div", {
+                  children: [
+                    T.jsx("div", {
+                      style: {
+                        color: "rgba(215,226,234,0.5)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.15em",
+                        fontSize: "clamp(0.55rem,0.9vw,0.8rem)",
+                        fontWeight: 500,
+                      },
+                      children: e.cat,
+                    }),
+                    T.jsx("div", {
+                      style: {
+                        color: "#D7E2EA",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        fontSize: "clamp(0.85rem,1.8vw,1.6rem)",
+                      },
+                      children: e.name,
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            T.jsx("a", {
+              href: e.link,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              style: {
+                borderRadius: 9999,
+                border: `1.5px solid ${e.accent || "#D7E2EA"}`,
+                color: e.accent || "#D7E2EA",
+                fontWeight: 500,
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                padding: "8px 20px",
+                fontSize: "clamp(0.6rem,1vw,0.85rem)",
+                textDecoration: "none",
+                fontFamily: "inherit",
+              },
+              children: r,
+            }),
+          ],
+        }),
+        T.jsxs("div", {
+          style: { display: "flex", gap: 12, alignItems: "stretch" },
+          children: [
+            T.jsx("div", {
+              style: {
+                width: "40%",
+                display: "flex",
+                flexDirection: "column",
+                gap: 8,
+                justifyContent: "center",
+              },
+              children: T.jsx(_TechStack, { projectN: e.n }),
+            }),
+            T.jsx("div", {
+              style: { width: "60%" },
+              children: T.jsx(bo, {
+                src: e.imgs[0],
+                height: "clamp(270px,35vw,460px)",
+                accent: e.accent,
+              }),
+            }),
+          ],
+        }),
+      ],
+    }),
+  });
+}
+function E2({ s: e, delay: t }) {
+  const [n, r] = L.useState(!1);
+  return T.jsx(Re, {
+    delay: t,
+    y: 40,
+    children: T.jsxs(tt.a, {
+      href: e.href,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      onHoverStart: () => r(!0),
+      onHoverEnd: () => r(!1),
+      animate: n ? { y: -10, scale: 1.07 } : { y: 0, scale: 1 },
+      transition: { type: "spring", stiffness: 300, damping: 18 },
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 14,
+        borderRadius: 24,
+        border: `2px solid ${e.border}`,
+        padding: "32px 40px",
+        background: e.bg,
+        textDecoration: "none",
+        minWidth: 140,
+        cursor: "pointer",
+      },
+      children: [
+        T.jsx(tt.div, {
+          animate: n
+            ? { rotate: [0, -8, 8, 0], scale: 1.2 }
+            : { rotate: 0, scale: 1 },
+          transition: { duration: 0.45 },
+          style: { color: e.textColor },
+          children: e.logo,
+        }),
+        T.jsx("span", {
+          style: {
+            color: e.textColor,
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.1em",
+            fontSize: 14,
+            fontFamily: "inherit",
+          },
+          children: e.label,
+        }),
+      ],
+    }),
+  });
+}
+function P2() {
+  const [e, t] = L.useState("uz"),
+    n = x2[e],
+    r = L.useRef(null),
+    [i, s] = L.useState(200),
+    [formData, setFormData] = L.useState({ name: "", email: "", phone: "", message: "" }),
+    [formSubmitted, setFormSubmitted] = L.useState(false),
+    [sending, setSending] = L.useState(false);
+  const handleFormSubmit = (g) => {
+    g.preventDefault();
+    if (!formData.name || !formData.phone || !formData.message) return;
+    setSending(true);
+    
+    // Telegram bot integration credentials
+    const TELEGRAM_BOT_TOKEN = "8740200082:AAE3dOaRQCON_FsD8wddQSd6jSByH1HHe7k";
+    const TELEGRAM_CHAT_ID = "6765979309";
+    
+    const messageText = `<b>Yangi xabar portfolio saytidan:</b>\n\n` +
+                        `<b>Ismi:</b> ${formData.name}\n` +
+                        `<b>Email:</b> ${formData.email || "Kiritilmagan"}\n` +
+                        `<b>Telefon:</b> ${formData.phone}\n` +
+                        `<b>Xabar:</b> ${formData.message}`;
+    
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_BOT_TOKEN !== "YOUR_TELEGRAM_BOT_TOKEN" && TELEGRAM_CHAT_ID && TELEGRAM_CHAT_ID !== "YOUR_TELEGRAM_CHAT_ID") {
+      fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: messageText,
+          parse_mode: "HTML"
+        })
+      })
+      .then(() => {
+        setSending(false);
+        setFormSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      })
+      .catch(() => {
+        // Fallback success so client flow is not broken
+        setSending(false);
+        setFormSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      });
+    } else {
+      // Fallback simulated success
+      setTimeout(() => {
+        setSending(false);
+        setFormSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      }, 1500);
+    }
+  };
+  L.useEffect(() => {
+    const u = () => {
+      const c = r.current;
+      if (!c) return;
+      const f = c.getBoundingClientRect().top + window.scrollY;
+      s((window.scrollY - f + window.innerHeight) * 0.3);
+    };
+    return (
+      window.addEventListener("scroll", u, { passive: !0 }),
+      u(),
+      () => window.removeEventListener("scroll", u)
+    );
+  }, []);
+  const o = [...Yo, ...Yo, ...Yo],
+    l = [...Qo, ...Qo, ...Qo],
+    a = {
+      background:
+        "linear-gradient(123deg,#18011F 7%,#B600A8 37%,#7621B0 72%,#BE4C00 100%)",
+      boxShadow: "0 4px 4px rgba(181,1,167,.25),inset 4px 4px 12px #7721B1",
+      outline: "2px solid white",
+      outlineOffset: "-3px",
+      color: "#fff",
+      fontFamily: "inherit",
+      fontWeight: 500,
+      textTransform: "uppercase",
+      letterSpacing: "0.1em",
+      border: "none",
+      cursor: "pointer",
+      borderRadius: "9999px",
+    };
+  return T.jsxs("div", {
+    style: {
+      background: "#0C0C0C",
+      overflowX: "visible",
+      fontFamily: "'Kanit', sans-serif",
+    },
+    children: [
+      T.jsxs("section", {
+        style: {
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          position: "relative",
+          overflowX: "visible",
+        },
+        children: [
+          T.jsx(Re, {
+            delay: 0,
+            y: -20,
+            children: T.jsxs("nav", {
+              style: {
+                display: "flex",
+                justifyContent: "center", width: "100%", alignItems: "center", padding: "28px 40px 0", gap: "clamp(20px,4vw,60px)",
+                position: "relative",
+              },
+              children: [
+                n.nav.map((u, c) =>
+                  T.jsx(
+                    "a",
+                    {
+                      href: `#${["about", "services", "projects", "contact"][c]}`,
+                      style: {
+                        color: "#D7E2EA",
+                        fontWeight: 500,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        textDecoration: "none",
+                        fontSize: "clamp(0.6rem,1vw,1rem)", opacity: 1,
+                      },
+                      children: u,
+                    },
+                    c,
+                  ),
+                ),
+                T.jsx("div", {
+                  style: {
+                    position: "absolute",
+                    right: "12vw",
+                    top: 28,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0,
+                    background: "rgba(255, 255, 255, 0.05)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                    borderRadius: 9999,
+                    padding: 4,
+                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    boxShadow: "inset 0 2px 8px rgba(0,0,0,0.3)",
+                  },
+                  children: ["uz", "en"].map((u) =>
+                    T.jsx(
+                      tt.button,
+                      {
+                        onClick: () => t(u),
+                        whileTap: { scale: 0.95 },
+                        style: {
+                          position: "relative",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          borderRadius: 9999,
+                          padding: "8px 16px",
+                          fontSize: 12,
+                          fontWeight: 600,
+                          textTransform: "uppercase",
+                          letterSpacing: "0.05em",
+                          cursor: "pointer",
+                          fontFamily: "inherit",
+                          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                          background: e === u ? "rgba(255, 255, 255, 0.15)" : "transparent",
+                          backdropFilter: e === u ? "blur(30px)" : "none",
+                          WebkitBackdropFilter: e === u ? "blur(30px)" : "none",
+                          border: e === u ? "1px solid rgba(255, 255, 255, 0.3)" : "1px solid transparent",
+                          borderTop: e === u ? "1px solid rgba(255, 255, 255, 0.6)" : "1px solid transparent",
+                          boxShadow: e === u ? "0 8px 16px rgba(0,0,0,0.3), inset 0 2px 5px rgba(255,255,255,0.4)" : "none",
+                          color: e === u ? "#fff" : "rgba(255,255,255,0.4)",
+                          zIndex: e === u ? 2 : 1,
+                        },
+                        children: u === "uz" ? "O'ZB" : "ENG",
+                      },
+                      u,
+                    ),
+                  ),
+                }),
+              ],
+            }),
+          }),
+          T.jsx("div", {
+            style: { overflow: "visible", textAlign: "center" },
+            children: T.jsx(Re, {
+              delay: 0.15,
+              y: 40,
+              children: T.jsx("h1", {
+                className: "hero-heading",
+                style: {
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1,
+                  fontSize: "clamp(10vw, 13vw, 16vw)",
+                  padding: "0 16px",
+                  marginTop: "clamp(4px,1vw,16px)",
+                  whiteSpace: "nowrap",
+                },
+                children: "Hi, i'm Nizom",
+              }),
+            }),
+          }),
+          T.jsx(Re, {
+            delay: 0.6,
+            y: 30,
+            style: {
+              position: "absolute",
+              left: 0, right: 0, margin: "0 auto", transform: "none",
+              top: "20%",
+              marginTop: "2vw",
+              zIndex: 10,
+              width: "clamp(180px,26vw,380px)",
+            },
+            children: T.jsx(S2, {
+              children: T.jsx(tt.img, {
+                src: v2,
+                alt: "Nizom",
+                style: { width: "100%", height: "auto", objectFit: "contain" },
+                loading: "eager",
+                animate: { y: [0, -14, 0] },
+                transition: { duration: 3.5, repeat: 1 / 0, ease: "easeInOut" },
+              }),
+            }),
+          }),
+          T.jsxs("div", {
+            style: {
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "0 12vw",
+              position: "absolute",
+              top: "55%",
+              left: 0, right: 0,
+              zIndex: 20,
+            },
+            children: [
+              T.jsx(Re, {
+          

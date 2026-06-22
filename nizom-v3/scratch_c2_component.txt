@@ -1,0 +1,162 @@
+children: r.name }),
+          ],
+        }, i)
+      ),
+    ],
+  });
+}
+function bo({ src: e, height: t, accent: a }) {
+  return T.jsxs("div", {
+    style: {
+      borderRadius: 12,
+      overflow: "hidden",
+      boxShadow: "0 8px 32px rgba(0,0,0,0.5)",
+      border: `1px solid ${a ? a+"66" : "rgba(255,255,255,0.1)"}`,
+      background: "#1a1a1a",
+      height: t,
+    },
+    children: [
+      T.jsxs("div", {
+        style: {
+          background: "#2a2a2a",
+          padding: "6px 10px",
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+        },
+        children: [
+          T.jsx("div", {
+            style: { display: "flex", gap: 5 },
+            children: ["#FF5F57", "#FEBC2E", "#28C840"].map((n, r) =>
+              T.jsx(
+                "div",
+                {
+                  style: {
+                    width: 10,
+                    height: 10,
+                    borderRadius: "50%",
+                    background: n,
+                  },
+                },
+                r,
+              ),
+            ),
+          }),
+          T.jsx("div", {
+            style: {
+              flex: 1,
+              background: "#3a3a3a",
+              borderRadius: 4,
+              height: 16,
+              marginLeft: 8,
+            },
+          }),
+        ],
+      }),
+      T.jsx("img", {
+        src: e,
+        alt: "",
+        loading: "lazy",
+        style: {
+          width: "100%",
+          height: `calc(${t} - 30px)`,
+          objectFit: "cover",
+          objectPosition: "top",
+          display: "block",
+        },
+      }),
+    ],
+  });
+}
+function C2({ p: e, idx: t, total: n, live: r }) {
+  const i = L.useRef(null),
+    { scrollYProgress: s } = Ag({
+      target: i,
+      offset: ["start end", "end start"],
+    }),
+    o = $u(s, [0, 1], [1, 1 - (n - 1 - t) * 0.04]);
+  return T.jsx("div", {
+    ref: i,
+    style: {
+      minHeight: "fit-content", position: "sticky", top: 0, display: "flex", alignItems: "flex-start", justifyContent: "center", paddingTop: `${50 + t * 16}px`, paddingBottom: "120px",
+    },
+    children: T.jsxs(tt.div, {
+      style: {
+        position: "relative",
+        width: "100%",
+        maxWidth: 1100,
+        borderRadius: 32,
+        background: "rgba(20, 15, 30, 0.4)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        border: "1px solid rgba(255,255,255,0.15)",
+        borderBottom: `1px solid ${e.accent || "rgba(138,43,226,0.4)"}`,
+        borderRight: `1px solid ${e.accent || "rgba(138,43,226,0.25)"}`,
+        padding: "clamp(16px,2.5vw,28px)",
+        scale: o,
+        transformOrigin: "top center",
+        boxShadow: `0 40px 80px rgba(0,0,0,0.8), inset 0 1px 1px rgba(255,255,255,0.4), inset 0 -1px 3px ${e.accent || "rgba(138,43,226,0.6)"}`,
+      },
+      children: [
+        T.jsxs("div", {
+          style: {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: 16,
+            flexWrap: "wrap",
+            gap: 12,
+          },
+          children: [
+            T.jsxs("div", {
+              style: { display: "flex", alignItems: "baseline", gap: 12 },
+              children: [
+                T.jsx("span", {
+                  className: "hero-heading",
+                  style: {
+                    fontWeight: 900,
+                    lineHeight: 1,
+                    fontSize: "clamp(2rem,6vw,80px)",
+                  },
+                  children: e.n,
+                }),
+                T.jsxs("div", {
+                  children: [
+                    T.jsx("div", {
+                      style: {
+                        color: "rgba(215,226,234,0.5)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.15em",
+                        fontSize: "clamp(0.55rem,0.9vw,0.8rem)",
+                        fontWeight: 500,
+                      },
+                      children: e.cat,
+                    }),
+                    T.jsx("div", {
+                      style: {
+                        color: "#D7E2EA",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        fontSize: "clamp(0.85rem,1.8vw,1.6rem)",
+                      },
+                      children: e.name,
+                    }),
+                  ],
+                }),
+              ],
+            }),
+            T.jsx("a", {
+              href: e.link,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              style: {
+                borderRadius: 9999,
+                border: `1.5px solid ${e.accent || "#D7E2EA"}`,
+                color: e.accent || "#D7E2EA",
+                fontWeight: 500,
+                textTransform: "uppercase",
+                letterSpacing: "0.12em",
+                padding: "8px 20px",
+                fontSize: "clamp(0.6rem,1vw,0.85rem)",
+                textDecoration: "none",
+                font
